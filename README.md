@@ -1,3 +1,8 @@
+# NOT FINISHED
+
+This project is far from finished.
+Design copied from HyStats discord bot.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

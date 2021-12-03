@@ -1,0 +1,23 @@
+.Nav {
+  position: fixed;
+  top: 0;
+  width: inherit;
+  height: 3rem;
+  padding: 10px;
+  background-color: var(--color--primary);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.Nav__logo {
+  max-height: 100%;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.Nav__about {
+  color: var(--text-color--primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
