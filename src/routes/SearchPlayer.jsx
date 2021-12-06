@@ -2,10 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import "./SearchPlayer.css";
-import Loading from "../components/Loading";
 
 export default function SearchPlayer() {
-  const { setSearchTerm, fetchPlayerData, isLoading } = useGlobalContext();
+  const { setSearchTerm, fetchPlayerData } = useGlobalContext();
   const navigate = useNavigate();
 
   const searchPlayer = async (e) => {
@@ -18,9 +17,7 @@ export default function SearchPlayer() {
     }
   };
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <div className="SearchPlayer">
       <h3 className="SearchPlayer__title" htmlFor="playerName">
         Search Player
