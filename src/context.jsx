@@ -10,8 +10,10 @@ export default function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [playerData, setPlayerData] = useState(null);
   const [playerHead, setPlayerHead] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchPlayerData = useCallback(async () => {
+    setIsLoading(true);
     try {
       // fetch hypixel stats
       const res = await fetch(
@@ -34,9 +36,12 @@ export default function AppProvider({ children }) {
         friends: data2.records,
       });
 
-      return true;
+      setIsLoading(false);
+      return true; // return true when the function has successfully fetched the data
     } catch (err) {
       console.log(new Error(err));
+      setIsLoading(false);
+      return false; // return false when something went poopoo
     }
   }, [searchTerm]);
 
@@ -48,6 +53,7 @@ export default function AppProvider({ children }) {
         playerData,
         fetchPlayerData,
         playerHead,
+        isLoading,
       }}
     >
       {children}
