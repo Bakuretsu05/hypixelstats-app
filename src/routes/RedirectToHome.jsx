@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 export default function RedirectToHome() {
   const navigate = useNavigate();
-  navigate("/");
+
+  useEffect(() => {
+    navigate("/");
+  });
 
   return null;
 }

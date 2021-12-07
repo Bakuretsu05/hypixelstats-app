@@ -31,7 +31,6 @@ export default function App() {
             <Route path="skywars" element={<SkywarsCard />} />
           </Route>
           <Route path="*" element={<RedirectToHome />} />
-          {/*FIX THIS THING WHY NO WORK AA*/}
         </Routes>
       </Router>
     </div>
