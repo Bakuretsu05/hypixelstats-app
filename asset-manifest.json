@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/hypixelstats-app/static/css/main.5f9caae8.chunk.css",
-    "main.js": "/hypixelstats-app/static/js/main.0a08e2d4.chunk.js",
-    "main.js.map": "/hypixelstats-app/static/js/main.0a08e2d4.chunk.js.map",
+    "main.css": "/hypixelstats-app/static/css/main.e05f19e4.chunk.css",
+    "main.js": "/hypixelstats-app/static/js/main.d11a2e30.chunk.js",
+    "main.js.map": "/hypixelstats-app/static/js/main.d11a2e30.chunk.js.map",
     "runtime-main.js": "/hypixelstats-app/static/js/runtime-main.bb71609d.js",
     "runtime-main.js.map": "/hypixelstats-app/static/js/runtime-main.bb71609d.js.map",
     "static/js/2.56a4167d.chunk.js": "/hypixelstats-app/static/js/2.56a4167d.chunk.js",
     "static/js/2.56a4167d.chunk.js.map": "/hypixelstats-app/static/js/2.56a4167d.chunk.js.map",
     "index.html": "/hypixelstats-app/index.html",
-    "static/css/main.5f9caae8.chunk.css.map": "/hypixelstats-app/static/css/main.5f9caae8.chunk.css.map",
+    "static/css/main.e05f19e4.chunk.css.map": "/hypixelstats-app/static/css/main.e05f19e4.chunk.css.map",
     "static/js/2.56a4167d.chunk.js.LICENSE.txt": "/hypixelstats-app/static/js/2.56a4167d.chunk.js.LICENSE.txt",
     "static/media/App.css": "/hypixelstats-app/static/media/background.e11e8c8c.png",
     "static/media/elainaflower.9261c6a8.png": "/hypixelstats-app/static/media/elainaflower.9261c6a8.png",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.bb71609d.js",
     "static/js/2.56a4167d.chunk.js",
-    "static/css/main.5f9caae8.chunk.css",
-    "static/js/main.0a08e2d4.chunk.js"
+    "static/css/main.e05f19e4.chunk.css",
+    "static/js/main.d11a2e30.chunk.js"
   ]
 }
