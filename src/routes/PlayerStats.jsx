@@ -28,7 +28,7 @@ function getTotalChallenges(challengesObject) {
 }
 
 export default function PlayerStats() {
-  const { playerHead, playerData } = useGlobalContext();
+  const { playerData } = useGlobalContext();
   const navigate = useNavigate();
 
   return (
@@ -37,7 +37,7 @@ export default function PlayerStats() {
         <div className="PlayerStats__player">
           <img
             className="PlayerStats__player-head"
-            src={playerHead}
+            src={playerData.playerHead}
             alt="player head avatar"
           />
           <h3 className="PlayerStats__title">{`[${playerData.newPackageRank}] ${playerData.displayname}`}</h3>

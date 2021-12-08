@@ -8,8 +8,7 @@ const AppContext = React.createContext();
 
 export default function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [playerData, setPlayerData] = useState(null);
-  const [playerHead, setPlayerHead] = useState(null);
+  const [playerData, setPlayerData] = useState(); // TODO: Initialize the player data by searchTerm
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchPlayerData = useCallback(async () => {
@@ -21,38 +20,42 @@ export default function AppProvider({ children }) {
       );
       const data = await res.json();
 
-      // fetch head avatar
-      const head = await fetch(HEAD_API + data.player.uuid);
-      setPlayerHead(head.url);
+      if (data.success) {
+        if (data.player === null) {
+          return `Player by the username "${searchTerm}" was not found.`; // return this message if no player was found
+        }
 
-      // fetch frinds of player
-      const res2 = await fetch(
-        `https://api.hypixel.net/friends?key=${API_KEY}&uuid=${data.player.uuid}`
-      );
-      const data2 = await res2.json();
+        const [head, friendsData] = await Promise.all([
+          fetch(HEAD_API + data.player.uuid),
+          fetch(
+            `https://api.hypixel.net/friends?key=${API_KEY}&uuid=${data.player.uuid}`
+          ).then((res) => res.json()),
+        ]);
 
-      setPlayerData({
-        ...data.player,
-        friends: data2.records,
-      });
+        setPlayerData({
+          ...data.player,
+          friends: friendsData.records,
+          playerHead: head.url,
+        });
 
-      setIsLoading(false);
-      return true; // return true when the function has successfully fetched the data
+        return true; // return true when the function has successfully fetched the data
+      }
+
+      // if fetching failed (invalid api key, etc...)
+      return data.cause; // return the error cause;
     } catch (err) {
-      console.log(new Error(err));
+      return err.message; // return the error message
+    } finally {
       setIsLoading(false);
-      return false; // return false when something went poopoo
     }
   }, [searchTerm]);
 
   return (
     <AppContext.Provider
       value={{
-        searchTerm,
         setSearchTerm,
         playerData,
         fetchPlayerData,
-        playerHead,
         isLoading,
       }}
     >

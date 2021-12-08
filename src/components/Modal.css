@@ -1,0 +1,28 @@
+.Modal {
+  position: absolute;
+  top: -30%;
+  background-color: #ed4758;
+  display: grid;
+  grid-template-columns: min-content auto;
+  border-radius: 10px;
+}
+
+.Modal__error-title-container {
+  height: 100%;
+  padding: 1rem;
+  background-color: #ff0019;
+  border-radius: 10px 0 0 10px;
+}
+
+.Modal__error-title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.Modal__text {
+  padding: 1rem;
+  color: var(--text-color--primary);
+  font-size: 1.2rem;
+  font-weight: 400;
+}

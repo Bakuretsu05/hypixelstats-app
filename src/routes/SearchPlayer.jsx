@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../components/Modal";
 import { useGlobalContext } from "../context";
+import Loading from "../components/Loading";
 import "./SearchPlayer.css";
 
 export default function SearchPlayer() {
-  const { setSearchTerm, fetchPlayerData } = useGlobalContext();
+  const { setSearchTerm, fetchPlayerData, isLoading } = useGlobalContext();
+  const [modal, setModal] = useState({ show: false, text: "" });
   const navigate = useNavigate();
 
   const searchPlayer = async (e) => {
     e.preventDefault();
-    const isDataFetched = await fetchPlayerData();
-    if (isDataFetched) {
+    const response = await fetchPlayerData();
+    if (response === true) {
       navigate(`stats/${e.target.playerName.value}`);
     } else {
-      // TODO: Make a "No player found" modal
+      setModal({ show: true, text: response });
+      console.log(response);
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div className="SearchPlayer">
       <h3 className="SearchPlayer__title" htmlFor="playerName">
         Search Player
@@ -34,6 +40,7 @@ export default function SearchPlayer() {
         <button className="SearchPlayer__button" type="submit">
           Show Player
         </button>
+        {modal.show && <Modal text={modal.text} />}
       </form>
     </div>
   );
