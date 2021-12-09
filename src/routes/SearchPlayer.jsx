@@ -17,7 +17,7 @@ export default function SearchPlayer() {
       navigate(`stats/${e.target.playerName.value}`);
     } else {
       setModal({ show: true, text: response });
-      console.log(response);
+      console.log(new Error(response));
     }
   };
 

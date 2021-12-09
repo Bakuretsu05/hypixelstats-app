@@ -25,17 +25,30 @@ export default function AppProvider({ children }) {
           return `Player by the username "${searchTerm}" was not found.`; // return this message if no player was found
         }
 
-        const [head, friendsData] = await Promise.all([
+        const [head, friends, status, guild] = await Promise.all([
           fetch(HEAD_API + data.player.uuid),
           fetch(
             `https://api.hypixel.net/friends?key=${API_KEY}&uuid=${data.player.uuid}`
+          ).then((res) => res.json()),
+          fetch(
+            `https://api.hypixel.net/status?key=${API_KEY}&uuid=${data.player.uuid}`
+          ).then((res) => res.json()),
+          fetch(
+            `https://api.hypixel.net/guild?key=${API_KEY}&player=${data.player.uuid}`
           ).then((res) => res.json()),
         ]);
 
         setPlayerData({
           ...data.player,
-          friends: friendsData.records,
+          friends: friends.records,
           playerHead: head.url,
+          session: status.session,
+          guild: {
+            name: guild.guild.name,
+            player: guild.guild.members.find(
+              (member) => member.uuid === data.player.uuid
+            ),
+          },
         });
 
         return true; // return true when the function has successfully fetched the data

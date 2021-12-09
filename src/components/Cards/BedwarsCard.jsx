@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../../context";
-import "../../routes/PlayerStats.css";
+import "../../routes/Player.css";
 
 // helper function to calculate bedwars stars by total bedwars experience
 function getBedwarsStarsByExp(exp) {
@@ -38,59 +38,55 @@ export default function BedwarsCard() {
 
   return (
     <div className="BedwarsCard --stats-card">
-      <h3 className="PlayerStats__title">Bedwars Card</h3>
+      <h3 className="Player__title">Bedwars Card</h3>
 
-      <ul className="PlayerStats__stats-list">
+      <ul className="Player__stats-list">
         <li>
-          <span className="PlayerStats__stats-text">Star: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">Star: </span>
+          <span className="Player__stats-value">
             {getBedwarsStarsByExp(Bedwars.Experience)}*
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Winstreak: </span>
-          <span className="PlayerStats__stats-value">{Bedwars.winstreak}</span>
+          <span className="Player__stats-text">Winstreak: </span>
+          <span className="Player__stats-value">{Bedwars.winstreak}</span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Wins: </span>
-          <span className="PlayerStats__stats-value">
-            {Bedwars.wins_bedwars}
-          </span>
+          <span className="Player__stats-text">Wins: </span>
+          <span className="Player__stats-value">{Bedwars.wins_bedwars}</span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Losses: </span>
-          <span className="PlayerStats__stats-value">
-            {Bedwars.losses_bedwars}
-          </span>
+          <span className="Player__stats-text">Losses: </span>
+          <span className="Player__stats-value">{Bedwars.losses_bedwars}</span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">WLR: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">WLR: </span>
+          <span className="Player__stats-value">
             {(Bedwars.wins_bedwars / Bedwars.losses_bedwars).toFixed(2)}
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Final Kills: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">Final Kills: </span>
+          <span className="Player__stats-value">
             {Bedwars.final_kills_bedwars}
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Final Deaths: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">Final Deaths: </span>
+          <span className="Player__stats-value">
             {Bedwars.final_deaths_bedwars}
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">FKDR: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">FKDR: </span>
+          <span className="Player__stats-value">
             {(
               Bedwars.final_kills_bedwars / Bedwars.final_deaths_bedwars
             ).toFixed(2)}
@@ -98,22 +94,22 @@ export default function BedwarsCard() {
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Beds Broken: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">Beds Broken: </span>
+          <span className="Player__stats-value">
             {Bedwars.beds_broken_bedwars}
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">Beds Lost: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">Beds Lost: </span>
+          <span className="Player__stats-value">
             {Bedwars.beds_lost_bedwars}
           </span>
         </li>
 
         <li>
-          <span className="PlayerStats__stats-text">BBLR: </span>
-          <span className="PlayerStats__stats-value">
+          <span className="Player__stats-text">BBLR: </span>
+          <span className="Player__stats-value">
             {(Bedwars.beds_broken_bedwars / Bedwars.beds_lost_bedwars).toFixed(
               2
             )}

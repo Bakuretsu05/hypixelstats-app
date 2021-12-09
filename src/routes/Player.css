@@ -1,4 +1,4 @@
-.PlayerStats {
+.Player {
   width: 80%;
   min-height: 80%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -11,43 +11,43 @@
     "general stats stats";
 }
 
-.PlayerStats__player {
+.Player__player {
   grid-area: player;
 }
 
-.PlayerStats__player-head {
+.Player__player-head {
   width: 150px;
   display: block;
 }
 
-.PlayerStats__title {
+.Player__title {
   font-size: 2rem;
   color: var(--text-color--primary);
   border-bottom: 1px solid white;
 }
 
-.PlayerStats__general-stats {
+.Player__general-stats {
   grid-area: general;
   align-self: center;
 }
 
-.PlayerStats__stats-list > li::marker {
+.Player__stats-list > li::marker {
   color: white;
 }
 
-.PlayerStats__stats-text {
+.Player__stats-text {
   color: var(--text-color--primary);
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.PlayerStats__stats-value {
+.Player__stats-value {
   color: var(--text-color--primary);
   font-weight: 400;
   font-size: 1.4rem;
 }
 
-.PlayerStats__stats {
+.Player__stats {
   grid-area: stats;
 }
 
