@@ -22,6 +22,7 @@ function getTotalChallenges(challengesObject) {
   );
 }
 
+// function to calculate the time gap between 2 points of time in Millisecond (converts it to abstracted text eg. "2 months ago", "1 year ago", etc...)
 function getTimeGap(date, currentDate) {
   // [(s -> m), (m -> h), (h -> d), (d -> month), (month -> year)]
   const converters = [

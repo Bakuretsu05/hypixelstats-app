@@ -1,6 +1,4 @@
 .Modal {
-  position: absolute;
-  top: -30%;
   background-color: #ed4758;
   display: grid;
   grid-template-columns: min-content auto;
