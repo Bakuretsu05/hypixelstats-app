@@ -5,6 +5,7 @@ function getNetworkLevelbyNetworkExp(networkExp) {
 
 // helper function to get total of completed quests by iterating every props in "quests" props and summing the length of each props.completions
 function getTotalQuestsCompletion(questsObject) {
+  if (!questsObject) return null;
   return Object.entries(questsObject).reduce((totalQuests, quest) => {
     if (quest[1].completions) {
       return (totalQuests += quest[1].completions.length);
