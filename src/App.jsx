@@ -8,7 +8,7 @@ import Skywars from "./components/gamemode/Skywars";
 import Nav from "./components/Nav";
 import About from "./routes/About";
 import Player from "./routes/Player";
-import RedirectToHome from "./routes/RedirectToHome";
+import RedirectTo from "./routes/RedirectTo";
 import SearchPlayer from "./routes/SearchPlayer";
 
 export default function App() {
@@ -17,13 +17,15 @@ export default function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path="/" element={<SearchPlayer />} />
-          <Route path="about" element={<About />} />
-          <Route path="stats/:playerName" element={<Player />}>
-            <Route path="bedwars" element={<Bedwars />} />
-            <Route path="skywars" element={<Skywars />} />
+          <Route path="hypixelstats-app">
+            <Route path="" element={<SearchPlayer />} />
+            <Route path="about" element={<About />} />
+            <Route path="stats/:playerName" element={<Player />}>
+              <Route path="bedwars" element={<Bedwars />} />
+              <Route path="skywars" element={<Skywars />} />
+            </Route>
+            <Route path="*" element={<RedirectTo to="" />} />
           </Route>
-          <Route path="*" element={<RedirectToHome />} />
         </Routes>
       </Router>
     </div>

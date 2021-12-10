@@ -12,7 +12,7 @@ export default function Nav() {
         className="Nav__logo"
         src={logo}
         alt="logo of PixieStats"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("hypixelstats-app")}
       />
 
       <h3 className="Nav__about" onClick={() => navigate("about")}>
