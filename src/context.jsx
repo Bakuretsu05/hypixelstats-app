@@ -47,12 +47,19 @@ export default function AppProvider({ children }) {
             friends: friends.records,
             playerHead: head.url,
             session: status.session,
-            guild: {
-              name: guild.guild.name,
-              player: guild.guild.members.find(
-                (member) => member.uuid === data.player.uuid
-              ),
-            },
+            guild: guild.guild
+              ? {
+                  name: guild.guild.name,
+                  player: guild.guild.members.find(
+                    (member) => member.uuid === data.player.uuid
+                  ),
+                }
+              : {
+                  name: null,
+                  player: {
+                    rank: null,
+                  },
+                },
           };
           sessionStorage.setItem(
             "tempPlayerData",

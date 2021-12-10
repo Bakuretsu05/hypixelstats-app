@@ -1,4 +1,5 @@
 import React from "react";
+import "./StatsRow.css";
 
 export default function StatsRow(props) {
   return (

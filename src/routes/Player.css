@@ -1,59 +1,10 @@
 .Player {
   width: 80%;
   min-height: 80%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   padding: 30px;
   display: grid;
   grid-gap: 50px;
-  grid-template-areas:
-    "player stats stats"
-    "general stats stats";
-}
-
-.Player__player {
-  grid-area: player;
-}
-
-.Player__player-head {
-  width: 150px;
-  display: block;
-}
-
-.Player__title {
-  font-size: 2rem;
-  color: var(--text-color--primary);
-  border-bottom: 1px solid white;
-}
-
-.Player__general-stats {
-  grid-area: general;
-  align-self: center;
-}
-
-.Player__stats-list > li::marker {
-  color: white;
-}
-
-.Player__stats-text {
-  color: var(--text-color--primary);
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.Player__stats-value {
-  color: var(--text-color--primary);
-  font-weight: 400;
-  font-size: 1.4rem;
-}
-
-.Player__stats {
-  grid-area: stats;
-}
-
-/* MODIFIER */
-.--stats-card {
-  height: 100%;
-  padding: 20px;
-  border-left: 1px solid white;
+  grid-template-columns: 25rem 1fr;
 }

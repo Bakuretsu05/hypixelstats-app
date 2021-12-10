@@ -6,7 +6,8 @@ import Modal from "../components/Modal";
 import Loading from "../components/Loading";
 
 export default function SearchPlayer() {
-  const { setSearchTerm, fetchPlayerData, isLoading } = useGlobalContext();
+  const { searchTerm, setSearchTerm, fetchPlayerData, isLoading } =
+    useGlobalContext();
   const [modal, setModal] = useState({ show: false, text: "" });
   const navigate = useNavigate();
 
@@ -44,6 +45,7 @@ export default function SearchPlayer() {
           placeholder="Enter a username"
           name="playerName"
           id="playerName"
+          value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button className="SearchPlayer__button" type="submit">

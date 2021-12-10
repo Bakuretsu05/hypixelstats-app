@@ -1,0 +1,12 @@
+.SelectMode__select {
+  background-color: var(--color--secondary);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+.SelectMode__select:hover {
+  cursor: pointer;
+}

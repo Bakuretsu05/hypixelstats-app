@@ -1,0 +1,10 @@
+.StatsCard {
+  background-color: var(--background-stats);
+  margin-block: 1rem;
+  padding: 0.5rem;
+}
+
+.StatsCard__title {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--color--secondary);
+}

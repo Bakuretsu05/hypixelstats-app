@@ -1,0 +1,22 @@
+.PlayerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.PlayerInfo__player {
+  background-color: var(--background-stats);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.PlayerInfo__player-head {
+  width: 7rem;
+  margin: 0.5rem;
+}
+
+.PlayerInfo__player-name {
+  font-size: 2.2rem;
+}

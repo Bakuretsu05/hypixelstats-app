@@ -8,6 +8,7 @@ variables
   --color--secondary: #5b8ce7;
   --text-color--primary: #f5f7fb;
   --text-color--secondary: #c9c9c9;
+  --background-stats: hsla(223, 7%, 20%, 0.565);
 }
 
 /* 

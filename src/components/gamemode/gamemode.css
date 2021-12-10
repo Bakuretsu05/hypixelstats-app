@@ -1,0 +1,29 @@
+.gamemode-container {
+  margin-top: 1rem;
+}
+
+.gamemode__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-stats);
+  padding: 0.8rem;
+  border-bottom: 2px solid var(--text-color--secondary);
+}
+
+.gamemode__icon {
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.gamemode__title {
+  display: inline;
+  margin-left: 1rem;
+  font-size: 2.8rem;
+}
+
+.gamemode__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+}
