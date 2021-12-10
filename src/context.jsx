@@ -1,4 +1,5 @@
 import React, { useState, useContext, useCallback } from "react";
+import { getPlayerDataFromSessionStorage } from "./helper";
 
 // env variables
 const API_KEY = "2f9bdbf2-9099-4281-8898-3ab625237d5f";
@@ -8,8 +9,10 @@ const AppContext = React.createContext();
 
 export default function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [playerData, setPlayerData] = useState(null); // TODO: Initialize the player data by searchTerm
   const [isLoading, setIsLoading] = useState(false);
+  const [playerData, setPlayerData] = useState(
+    getPlayerDataFromSessionStorage("tempPlayerData")
+  );
 
   const fetchPlayerData = useCallback(
     async (searchValue = searchTerm) => {
@@ -39,7 +42,7 @@ export default function AppProvider({ children }) {
             ).then((res) => res.json()),
           ]);
 
-          setPlayerData({
+          const formattedData = {
             ...data.player,
             friends: friends.records,
             playerHead: head.url,
@@ -50,7 +53,16 @@ export default function AppProvider({ children }) {
                 (member) => member.uuid === data.player.uuid
               ),
             },
-          });
+          };
+          sessionStorage.setItem(
+            "tempPlayerData",
+            JSON.stringify(formattedData)
+          );
+          sessionStorage.setItem(
+            "playerName",
+            data.player.displayname.toLowerCase()
+          );
+          setPlayerData(formattedData);
 
           return true; // return true when the function has successfully fetched the data
         }

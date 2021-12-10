@@ -13,7 +13,10 @@ export default function Player() {
   const params = useParams();
 
   useEffect(() => {
-    if (playerData === null) {
+    if (
+      playerData === null ||
+      sessionStorage.getItem("playerName") !== params.playerName.toLowerCase()
+    ) {
       const handleFetch = async () => {
         const response = await fetchPlayerData(params.playerName);
         if (response === true) {

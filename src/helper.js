@@ -23,6 +23,7 @@ function getTotalChallenges(challengesObject) {
 }
 
 // function to calculate the time gap between 2 points of time in Millisecond (converts it to abstracted text eg. "2 months ago", "1 year ago", etc...)
+// ! : Fix bug where it displays NaN for big number (technoblade last login 52 years)
 function getTimeGap(date, currentDate) {
   // [(s -> m), (m -> h), (h -> d), (d -> month), (month -> year)]
   const converters = [
@@ -54,9 +55,14 @@ function getTimeGap(date, currentDate) {
   return text;
 }
 
+function getPlayerDataFromSessionStorage(key) {
+  return JSON.parse(sessionStorage.getItem(key));
+}
+
 export {
   getNetworkLevelbyNetworkExp,
   getTotalQuestsCompletion,
   getTotalChallenges,
   getTimeGap,
+  getPlayerDataFromSessionStorage,
 };
