@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hypixelstats-app/static/css/main.8aa3ff66.chunk.css",
-    "main.js": "/hypixelstats-app/static/js/main.97651c9e.chunk.js",
-    "main.js.map": "/hypixelstats-app/static/js/main.97651c9e.chunk.js.map",
+    "main.js": "/hypixelstats-app/static/js/main.a49df028.chunk.js",
+    "main.js.map": "/hypixelstats-app/static/js/main.a49df028.chunk.js.map",
     "runtime-main.js": "/hypixelstats-app/static/js/runtime-main.bb71609d.js",
     "runtime-main.js.map": "/hypixelstats-app/static/js/runtime-main.bb71609d.js.map",
-    "static/js/2.8769a0f1.chunk.js": "/hypixelstats-app/static/js/2.8769a0f1.chunk.js",
-    "static/js/2.8769a0f1.chunk.js.map": "/hypixelstats-app/static/js/2.8769a0f1.chunk.js.map",
+    "static/js/2.d104b132.chunk.js": "/hypixelstats-app/static/js/2.d104b132.chunk.js",
+    "static/js/2.d104b132.chunk.js.map": "/hypixelstats-app/static/js/2.d104b132.chunk.js.map",
     "index.html": "/hypixelstats-app/index.html",
     "static/css/main.8aa3ff66.chunk.css.map": "/hypixelstats-app/static/css/main.8aa3ff66.chunk.css.map",
-    "static/js/2.8769a0f1.chunk.js.LICENSE.txt": "/hypixelstats-app/static/js/2.8769a0f1.chunk.js.LICENSE.txt",
+    "static/js/2.d104b132.chunk.js.LICENSE.txt": "/hypixelstats-app/static/js/2.d104b132.chunk.js.LICENSE.txt",
     "static/media/App.css": "/hypixelstats-app/static/media/background.e11e8c8c.png",
     "static/media/elainaflower.9261c6a8.png": "/hypixelstats-app/static/media/elainaflower.9261c6a8.png",
     "static/media/logo.1f82137d.png": "/hypixelstats-app/static/media/logo.1f82137d.png",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bb71609d.js",
-    "static/js/2.8769a0f1.chunk.js",
+    "static/js/2.d104b132.chunk.js",
     "static/css/main.8aa3ff66.chunk.css",
-    "static/js/main.97651c9e.chunk.js"
+    "static/js/main.a49df028.chunk.js"
   ]
 }
