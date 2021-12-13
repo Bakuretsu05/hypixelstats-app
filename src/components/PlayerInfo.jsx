@@ -71,10 +71,7 @@ export default function PlayerInfo() {
           },
           {
             text: "Rank",
-            value: playerData.guild.player.rank
-              ? playerData.guild.player.rank[0] +
-                playerData.guild.player.rank.slice(1).toLowerCase()
-              : null,
+            value: playerData.guild.player.rank,
           },
         ],
       },
@@ -92,8 +89,8 @@ export default function PlayerInfo() {
         <h2 className="PlayerInfo__player-name">{playerData.displayname}</h2>
       </header>
       <main className="PlayerInfo__stats">
-        {stats.map((stats) => (
-          <StatsCard {...stats} />
+        {stats.map((stat) => (
+          <StatsCard key={stat.title} {...stat} />
         ))}
       </main>
     </div>

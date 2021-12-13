@@ -1,5 +1,6 @@
 import React, { useState, useContext, useCallback } from "react";
 import { getPlayerDataFromSessionStorage } from "./helper";
+import { formatData } from "./dataForms";
 
 // env variables
 const API_KEY = "2f9bdbf2-9099-4281-8898-3ab625237d5f";
@@ -42,25 +43,17 @@ export default function AppProvider({ children }) {
             ).then((res) => res.json()),
           ]);
 
-          const formattedData = {
+          const formattedData = formatData({
             ...data.player,
-            friends: friends.records,
             playerHead: head.url,
-            session: status.session,
-            guild: guild.guild
-              ? {
-                  name: guild.guild.name,
-                  player: guild.guild.members.find(
-                    (member) => member.uuid === data.player.uuid
-                  ),
-                }
-              : {
-                  name: null,
-                  player: {
-                    rank: null,
-                  },
-                },
-          };
+            session: { ...status.session },
+            guild: { ...guild.guild },
+            friends: [...friends.records],
+          });
+          console.log({
+            playerHead: { head },
+          });
+
           sessionStorage.setItem(
             "tempPlayerData",
             JSON.stringify(formattedData)

@@ -25,16 +25,10 @@ export default function Bedwars() {
           {
             text: "Loot Chests",
             value:
-              (Bedwars.bedwars_boxes ? Bedwars.bedwars_boxes : 0) +
-              (Bedwars.bedwars_christmas_boxes
-                ? Bedwars.bedwars_christmas_boxes
-                : 0) +
-              (Bedwars.bedwars_easter_boxes
-                ? Bedwars.bedwars_easter_boxes
-                : 0) +
-              (Bedwars.bedwars_halloween_boxes
-                ? Bedwars.bedwars_halloween_boxes
-                : 0),
+              Bedwars.bedwars_boxes +
+              Bedwars.bedwars_christmas_boxes +
+              Bedwars.bedwars_easter_boxes +
+              Bedwars.bedwars_halloween_boxes,
           },
         ],
       },
@@ -165,7 +159,7 @@ export default function Bedwars() {
       </header>
       <main className="gamemode__stats">
         {stats.map((stat) => (
-          <StatsCard {...stat} />
+          <StatsCard key={stat.title} {...stat} />
         ))}
       </main>
     </div>

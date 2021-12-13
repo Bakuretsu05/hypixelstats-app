@@ -5,7 +5,7 @@ function getNetworkLevelbyNetworkExp(networkExp) {
 
 // helper function to get total of completed quests by iterating every props in "quests" props and summing the length of each props.completions
 function getTotalQuestsCompletion(questsObject) {
-  if (!questsObject) return null;
+  if (questsObject === null) return 0;
   return Object.entries(questsObject).reduce((totalQuests, quest) => {
     if (quest[1].completions) {
       return (totalQuests += quest[1].completions.length);
@@ -17,7 +17,7 @@ function getTotalQuestsCompletion(questsObject) {
 
 // helper function to calculate total of challenges completed
 function getTotalChallenges(challengesObject) {
-  if (!challengesObject) return null;
+  if (challengesObject === null) return 0;
   return Object.entries(challengesObject.all_time).reduce(
     (sum, curr) => (sum += curr[1]),
     0
@@ -27,6 +27,8 @@ function getTotalChallenges(challengesObject) {
 // function to calculate the time gap between 2 points of time in Millisecond (converts it to abstracted text eg. "2 months ago", "1 year ago", etc...)
 // ! : Fix bug where it displays NaN for big number (technoblade last login 52 years)
 function getTimeGap(date, currentDate) {
+  if (date === null) return "N/A";
+
   // [(s -> m), (m -> h), (h -> d), (d -> month), (month -> year)]
   const converters = [
     ["second", 60],
@@ -37,19 +39,24 @@ function getTimeGap(date, currentDate) {
   ];
 
   let gap = Math.round((currentDate - date) / 1000); // gap initialized in second
-  let text;
+  let text = ``;
 
   for (let [timeType, converter] of converters) {
     const result = gap / converter;
+    console.log(`result: ${result}\nconverter: ${converter}\n----------`);
     if (result < 1) {
       text = `${Math.round(gap)} ${
         Math.round(gap) > 1 ? timeType + "s" : timeType
       }`;
+      gap = result;
       break;
     }
     gap = result;
   }
 
+  console.log(gap);
+  if (gap > 1)
+    return `${gap.toFixed(1)} ${gap.toFixed(1) > 1 ? "years" : "year"}`;
   return text;
 }
 
@@ -86,7 +93,7 @@ function getBedwarsStarsByExp(exp) {
   }
   exp -= 9000;
 
-  return Math.floor(exp / 5000 + 4 + prestige * BEDWARS_LEVELS_PER_PRESTIGE);
+  return exp / 5000 + 4 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
 }
 
 /* ================

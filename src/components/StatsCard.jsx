@@ -11,7 +11,7 @@ export default function StatsCard(props) {
           <StatsRow
             key={stat.text}
             text={stat.text}
-            value={stat.value ? stat.value.toLocaleString() : "N/A"}
+            value={stat.value == null ? "???" : stat.value.toLocaleString()}
           />
         ))}
       </div>

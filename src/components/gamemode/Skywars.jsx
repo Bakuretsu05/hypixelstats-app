@@ -118,8 +118,8 @@ export default function SkywarsCard() {
         <h3 className="gamemode__title">Skywars</h3>
       </header>
       <main className="gamemode__stats">
-        {stats.map((stats) => (
-          <StatsCard {...stats} />
+        {stats.map((stat) => (
+          <StatsCard key={stat.title} {...stat} />
         ))}
       </main>
     </div>
