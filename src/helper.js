@@ -24,10 +24,10 @@ function getTotalChallenges(challengesObject) {
   );
 }
 
-// function to calculate the time gap between 2 points of time in Millisecond (converts it to abstracted text eg. "2 months ago", "1 year ago", etc...)
-// ! : Fix bug where it displays NaN for big number (technoblade last login 52 years)
+// function to calculate the time gap between 2 points of time in Millisecond (converts it to abstracted text eg. "2 months", "1 year", etc...)
 function getTimeGap(date, currentDate) {
   if (date === null) return "N/A";
+  console.log(date, currentDate);
 
   // [(s -> m), (m -> h), (h -> d), (d -> month), (month -> year)]
   const converters = [
@@ -39,11 +39,10 @@ function getTimeGap(date, currentDate) {
   ];
 
   let gap = Math.round((currentDate - date) / 1000); // gap initialized in second
-  let text = ``;
+  let text;
 
   for (let [timeType, converter] of converters) {
     const result = gap / converter;
-    console.log(`result: ${result}\nconverter: ${converter}\n----------`);
     if (result < 1) {
       text = `${Math.round(gap)} ${
         Math.round(gap) > 1 ? timeType + "s" : timeType
@@ -54,7 +53,6 @@ function getTimeGap(date, currentDate) {
     gap = result;
   }
 
-  console.log(gap);
   if (gap > 1)
     return `${gap.toFixed(1)} ${gap.toFixed(1) > 1 ? "years" : "year"}`;
   return text;
@@ -62,38 +60,6 @@ function getTimeGap(date, currentDate) {
 
 function getPlayerDataFromSessionStorage(key) {
   return JSON.parse(sessionStorage.getItem(key));
-}
-
-/* ================
-      BEDWARS 
-=====================*/
-function getBedwarsStarsByExp(exp) {
-  const BEDWARS_EXP_PER_PRESTIGE = 489000;
-  const BEDWARS_LEVELS_PER_PRESTIGE = 100;
-
-  let prestige = exp / BEDWARS_EXP_PER_PRESTIGE;
-  exp = exp % BEDWARS_EXP_PER_PRESTIGE;
-  if (prestige > 5) {
-    let over = prestige % 5;
-    exp += over * BEDWARS_EXP_PER_PRESTIGE;
-    prestige -= over;
-  }
-
-  // first few levels are different
-  if (exp < 500) {
-    return 0 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
-  } else if (exp < 1500) {
-    return 1 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
-  } else if (exp < 3500) {
-    return 2 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
-  } else if (exp < 5500) {
-    return 3 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
-  } else if (exp < 9000) {
-    return 4 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
-  }
-  exp -= 9000;
-
-  return exp / 5000 + 4 + prestige * BEDWARS_LEVELS_PER_PRESTIGE;
 }
 
 /* ================
@@ -110,23 +76,36 @@ function calculatePlaytime(timePlayed) {
   ];
 
   let text;
+  let timeConverted = 1;
+  let time = timePlayed;
 
   for (let [timeType, converter] of converters) {
-    const result = timePlayed / converter;
+    const result = time / converter;
     if (result < 1) {
-      text = `${Math.round(timePlayed)}${timeType}`;
+      text = `${Math.round(time)}${timeType}`;
+      timeConverted *= Math.round(time);
+      time = result;
       break;
     }
-    timePlayed = result;
+    timeConverted *= converter;
+    time = result;
   }
+  if (time > 1) {
+    timeConverted = (timeConverted / 30) * (time * 30).toFixed(0);
+    text = `${(time * 30).toFixed(0)}d`;
+  }
+  if (text.includes("s")) return text;
+  time = timePlayed - timeConverted;
+  console.log(time);
 
   for (let [timeType, converter] of converters) {
-    const result = timePlayed / converter;
+    const result = time / converter;
     if (result < 1) {
-      text += ` ${Math.round(timePlayed)}${timeType}`;
+      text += ` ${Math.round(time)}${timeType}`;
+      time = result;
       break;
     }
-    timePlayed = result;
+    time = result;
   }
 
   return text;
@@ -138,6 +117,5 @@ export {
   getTotalChallenges,
   getTimeGap,
   getPlayerDataFromSessionStorage,
-  getBedwarsStarsByExp,
   calculatePlaytime,
 };

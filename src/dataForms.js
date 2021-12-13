@@ -7,6 +7,9 @@ export const formatData = (data) => {
     networkExp: get(data, "networkExp", 0),
     karma: get(data, "karma", 0),
     achievementPoints: get(data, "achievementPoints", 0),
+    achievements: {
+      bedwars_level: get(data, "achievements.bedwars_level", 0),
+    },
     quests: get(data, "quests", null),
     challenges: get(data, "challenges", null),
     friends: get(data, "friends", []),

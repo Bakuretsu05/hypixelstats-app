@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import "./gamemode.css";
 import icon from "../../assets/bedwars-icon.jpg";
-import { getBedwarsStarsByExp } from "../../helper";
 import { useGlobalContext } from "../../context";
 import StatsCard from "../StatsCard";
 
@@ -16,7 +15,7 @@ export default function Bedwars() {
         stats: [
           {
             text: "Star",
-            value: getBedwarsStarsByExp(Bedwars.Experience) + "✫",
+            value: playerData.achievements.bedwars_level + "✫",
           },
           {
             text: "Coins",
@@ -133,7 +132,7 @@ export default function Bedwars() {
       },
     ];
   }, [
-    Bedwars.Experience,
+    playerData.achievements.bedwars_level,
     Bedwars.beds_broken_bedwars,
     Bedwars.beds_lost_bedwars,
     Bedwars.bedwars_boxes,
