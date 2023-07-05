@@ -3,7 +3,7 @@ import { getPlayerDataFromSessionStorage } from "./helper";
 import { formatData } from "./dataForms";
 
 // env variables
-const API_KEY = "2f9bdbf2-9099-4281-8898-3ab625237d5f";
+const API_KEY = "449907e3-4370-4802-bce8-29ac4bc6b9ae";
 const HEAD_API = "https://crafatar.com/avatars/"; //+uuid
 
 const AppContext = React.createContext();
@@ -49,9 +49,6 @@ export default function AppProvider({ children }) {
             session: { ...status.session },
             guild: { ...guild.guild },
             friends: [...friends.records],
-          });
-          console.log({
-            playerHead: { head },
           });
 
           sessionStorage.setItem(
