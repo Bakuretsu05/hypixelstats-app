@@ -1,24 +1,17 @@
 {
   "files": {
-    "main.css": "/hypixelstats-app/static/css/main.8aa3ff66.chunk.css",
-    "main.js": "/hypixelstats-app/static/js/main.a49df028.chunk.js",
-    "main.js.map": "/hypixelstats-app/static/js/main.a49df028.chunk.js.map",
-    "runtime-main.js": "/hypixelstats-app/static/js/runtime-main.bb71609d.js",
-    "runtime-main.js.map": "/hypixelstats-app/static/js/runtime-main.bb71609d.js.map",
-    "static/js/2.d104b132.chunk.js": "/hypixelstats-app/static/js/2.d104b132.chunk.js",
-    "static/js/2.d104b132.chunk.js.map": "/hypixelstats-app/static/js/2.d104b132.chunk.js.map",
+    "main.css": "/hypixelstats-app/static/css/main.c5c09e70.css",
+    "main.js": "/hypixelstats-app/static/js/main.de86a539.js",
+    "static/media/background.png": "/hypixelstats-app/static/media/background.e11e8c8cf10267cc6be2.png",
+    "static/media/elainaflower.png": "/hypixelstats-app/static/media/elainaflower.9261c6a8fee130fe8fba.png",
+    "static/media/skywars-icon.png": "/hypixelstats-app/static/media/skywars-icon.a83cf92a3e25d5e25760.png",
+    "static/media/logo.png": "/hypixelstats-app/static/media/logo.1f82137dfeb9abb72e67.png",
     "index.html": "/hypixelstats-app/index.html",
-    "static/css/main.8aa3ff66.chunk.css.map": "/hypixelstats-app/static/css/main.8aa3ff66.chunk.css.map",
-    "static/js/2.d104b132.chunk.js.LICENSE.txt": "/hypixelstats-app/static/js/2.d104b132.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/hypixelstats-app/static/media/background.e11e8c8c.png",
-    "static/media/elainaflower.9261c6a8.png": "/hypixelstats-app/static/media/elainaflower.9261c6a8.png",
-    "static/media/logo.1f82137d.png": "/hypixelstats-app/static/media/logo.1f82137d.png",
-    "static/media/skywars-icon.a83cf92a.png": "/hypixelstats-app/static/media/skywars-icon.a83cf92a.png"
+    "main.c5c09e70.css.map": "/hypixelstats-app/static/css/main.c5c09e70.css.map",
+    "main.de86a539.js.map": "/hypixelstats-app/static/js/main.de86a539.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.bb71609d.js",
-    "static/js/2.d104b132.chunk.js",
-    "static/css/main.8aa3ff66.chunk.css",
-    "static/js/main.a49df028.chunk.js"
+    "static/css/main.c5c09e70.css",
+    "static/js/main.de86a539.js"
   ]
 }
