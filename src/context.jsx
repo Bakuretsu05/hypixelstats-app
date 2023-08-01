@@ -30,11 +30,8 @@ export default function AppProvider({ children }) {
                         return `Player by the username "${searchValue}" was not found.`; // return this message if no player was found
                     }
 
-                    const [head, friends, status, guild] = await Promise.all([
+                    const [head, status, guild] = await Promise.all([
                         fetch(HEAD_API + data.player.uuid),
-                        fetch(
-                            `https://api.hypixel.net/friends?key=${API_KEY}&uuid=${data.player.uuid}`
-                        ).then((res) => res.json()),
                         fetch(
                             `https://api.hypixel.net/status?key=${API_KEY}&uuid=${data.player.uuid}`
                         ).then((res) => res.json()),
@@ -48,7 +45,6 @@ export default function AppProvider({ children }) {
                         playerHead: head.url,
                         session: { ...status.session },
                         guild: { ...guild.guild },
-                        friends: [...friends.records],
                     });
 
                     sessionStorage.setItem(
